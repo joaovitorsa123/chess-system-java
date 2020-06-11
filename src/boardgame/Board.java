@@ -45,7 +45,7 @@ public class Board {
 	}
 	public void placePiece(Piece piece, Position position) {// metodo que vai definir a posição da peça
 		if(thereIsAPiece(position)) {
-			throw new BoardException("There is already a piece on position" + position);
+			throw new BoardException("There is already a piece on position " + position);
 		}
 		pieces[position.getRow()][position.getColumn()] = piece;
 		//vai pegar a matriz na posição dada e atribuir a ela a peça que foi informada.

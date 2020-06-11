@@ -25,10 +25,17 @@ public class ChessMatch {//será o coração do sistema, nessa classe terá as regra
 		}
 		return mat;
 	}
+	
+	private void placeNewPiece(char column, int row, ChessPiece piece) {
+		board.placePiece(piece, new ChessPosition(column, row).toPosition());
+		//toPosition converte a posição do xadrez em posição de matriz
+	}
 	private void initialSetup() {
-		board.placePiece(new Rook(board, Color.WHITE), new Position(2,7));
-		board.placePiece(new King(board, Color.BLACK), new Position(0,0));
-		board.placePiece(new King(board, Color.BLACK), new Position(0,0));
+		placeNewPiece('b', 6, new Rook(board, Color.WHITE));
+		placeNewPiece('a', 1, new King(board, Color.BLACK));
+		placeNewPiece('a', 2, new King(board, Color.BLACK));
+		placeNewPiece('a', 8, new King(board, Color.BLACK));
+		
 	}
 	
 }
