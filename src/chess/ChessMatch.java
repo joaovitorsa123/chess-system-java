@@ -50,6 +50,10 @@ public class ChessMatch {//será o coração do sistema, nessa classe terá as regra
 		if(!board.thereIsAPiece(position)) {
 			throw new ChessException("There is no piece on source position.");
 		}
+		if(!board.piece(position).isThereAnyPossibleMove()) { 
+			//vai navegar pelo tabuleiro, pela peça e na posição que ela esta, se há algum movimento possivel
+			throw new ChessException("There is no possible moves for the chosen piece.");
+		}
 		
 	}
 	
