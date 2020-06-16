@@ -32,6 +32,7 @@ public class ChessMatch {//será o coração do sistema, nessa classe terá as regra
 		Position source = sourcePosition.toPosition(); //converte para a posição da matriz
 		Position target = targetPosition.toPosition(); //converte para a posição da matriz
 		validateSourcePosition(source);
+		validateTargetPosition(source, target); //se a posição de destino é válida em relação a posição de destino
 		Piece capturedPiece = makeMove(source,target); 
 		//makemove- método responsável por realizaro movimento da peça
 		return (ChessPiece)capturedPiece; 
@@ -52,9 +53,15 @@ public class ChessMatch {//será o coração do sistema, nessa classe terá as regra
 		}
 		if(!board.piece(position).isThereAnyPossibleMove()) { 
 			//vai navegar pelo tabuleiro, pela peça e na posição que ela esta, se há algum movimento possivel
-			throw new ChessException("There is no possible moves for the chosen piece.");
+			throw new ChessException("There is no possible moves for the chosen piece."); 
 		}
 		
+	}
+	private void validateTargetPosition(Position source, Position target) {
+		if(!board.piece(source).possibleMoves(target)) { 
+			//se para a peça de origem a posiçãod e destino não é um movimento possivel, significa que não pode mexer pra la
+			throw new ChessException("The chosen piece can't move to target position");
+		}
 	}
 	
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
