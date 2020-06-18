@@ -26,6 +26,12 @@ public class ChessMatch {//será o coração do sistema, nessa classe terá as regra
 		}
 		return mat;
 	}
+	public boolean[][] possibleMoves(ChessPosition sourcePosition){
+		Position position = sourcePosition.toPosition();//converter essa posição de xadrez em matriz normal
+		validateSourcePosition(position); //validar a posição de origem
+		return board.piece(position).possibleMoves(); //retornar os movimentos possiveis dessa posição
+		
+	}
 	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
 		//source - posição de origem
 		//target - posição de destino
@@ -58,7 +64,7 @@ public class ChessMatch {//será o coração do sistema, nessa classe terá as regra
 		
 	}
 	private void validateTargetPosition(Position source, Position target) {
-		if(!board.piece(source).possibleMoves(target)) { 
+		if(!board.piece(source).possibleMove(target)) { 
 			//se para a peça de origem a posiçãod e destino não é um movimento possivel, significa que não pode mexer pra la
 			throw new ChessException("The chosen piece can't move to target position");
 		}
