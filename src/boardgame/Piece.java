@@ -1,9 +1,12 @@
 package boardgame;
 
+import chess.ChessPiece;
+
 public abstract class Piece {
 
 	protected Position position;
 	private Board board;
+
 	
 	public Piece(Board board) {
 		this.board = board;
