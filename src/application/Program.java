@@ -8,18 +8,15 @@ import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 
-/**
- * @author vitor
- *
- */
-public class Programa {
+public class Program {
 
 	public static void main(String[] args) {
-	 ChessMatch chessMatch = new ChessMatch();
-	 Scanner sc= new Scanner(System.in);
-	 
-	 while(true) {
-		 try {
+		
+		Scanner sc = new Scanner(System.in);
+		ChessMatch chessMatch = new ChessMatch();
+		
+		while (true) {
+			try {
 				UI.clearScreen();
 				UI.printBoard(chessMatch.getPieces());
 				System.out.println();
@@ -43,8 +40,6 @@ public class Programa {
 				System.out.println(e.getMessage());
 				sc.nextLine();
 			}
-	 }
-	
+		}
 	}
-
 }

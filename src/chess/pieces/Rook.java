@@ -5,23 +5,23 @@ import boardgame.Position;
 import chess.ChessPiece;
 import chess.Color;
 
-public class Rook extends ChessPiece{
+public class Rook extends ChessPiece {
 
 	public Rook(Board board, Color color) {
 		super(board, color);
 	}
-	
+
 	@Override
 	public String toString() {
-		return "R"; //como o nome da peça é Rook vai retornar R
+		return "R";
 	}
-
+	
 	@Override
 	public boolean[][] possibleMoves() {
-		boolean mat[][] = new  boolean[getBoard().getRows()][getBoard().getColumns()];
+		boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
 		
 		Position p = new Position(0, 0);
-
+		
 		// above
 		p.setValues(position.getRow() - 1, position.getColumn());
 		while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
@@ -64,6 +64,4 @@ public class Rook extends ChessPiece{
 		
 		return mat;
 	}
-
-
 }
